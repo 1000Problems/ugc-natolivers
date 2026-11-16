@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tips de Nat — UGC de skincare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory: #F8F3EE;
+      --ivory-deep: #F1E8E0;
+      --blush: #E8C9C4;
+      --blush-deep: #D4A8A2;
+      --rose: #B56E66;
+      --gold: #C4A574;
+      --gold-deep: #A4844E;
+      --ink: #2C2420;
+      --ink-soft: #5C514A;
+      --muted: #7A6E67;
+      --white: #FFFCFA;
+      --line: rgba(196, 165, 116, 0.35);
+      --shadow: 0 12px 40px rgba(44, 36, 32, 0.07);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Outfit", system-ui, sans-serif;
+      background: var(--ivory);
+      color: var(--ink);
+      line-height: 1.6;
+      font-weight: 400;
+      font-size: 16.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Language toggle: hide the inactive language */
+    html[lang="es"] .t-en { display: none; }
+    html[lang="en"] .t-es { display: none; }
+
+    .page {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* Top bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(248, 243, 238, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      margin: 0 -20px;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-mark {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .lang-toggle button {
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 0;
+      background: transparent;
+      color: var(--ink-soft);
+      padding: 7px 14px;
+      cursor: pointer;
+    }
+
+    html[lang="es"] #btn-es,
+    html[lang="en"] #btn-en {
+      background: var(--rose);
+      color: var(--white);
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 56px 0 48px;
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3.1rem, 10vw, 5.2rem);
+      font-weight: 600;
+      line-height: 0.95;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .rule {
+      width: 56px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 20px;
+    }
+
+    .tagline {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.2rem, 3.4vw, 1.55rem);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--rose);
+      max-width: 640px;
+      margin: 0 auto 24px;
+      line-height: 1.35;
+    }
+
+    .bio {
+      max-width: 580px;
+      margin: 0 auto 32px;
+      color: var(--ink-soft);
+      font-size: 1.02rem;
+      font-weight: 300;
+    }
+
+    .cta {
+      display: inline-block;
+      background: var(--rose);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(181, 110, 102, 0.28);
+    }
+
+    .cta:hover { background: #9f5b54; }
+
+    /* Sections */
+    section { margin-top: 56px; scroll-margin-top: 72px; }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.9rem, 5vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 8px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Cards */
+    .cards { display: grid; gap: 22px; }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 148px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .ph-wrap { text-align: center; }
+
+    .video-ph {
+      aspect-ratio: 9 / 16;
+      width: 100%;
+      max-width: 148px;
+      margin: 0 auto;
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(232, 201, 196, 0.35), rgba(241, 232, 224, 0.9)),
+        repeating-linear-gradient(-45deg, transparent, transparent 8px, rgba(196, 165, 116, 0.07) 8px, rgba(196, 165, 116, 0.07) 16px);
+      border: 1.5px dashed var(--blush-deep);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      color: var(--rose);
+      text-align: center;
+    }
+
+    .video-ph .ratio {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .video-ph .hint {
+      font-size: 0.68rem;
+      line-height: 1.35;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--ink-soft);
+    }
+
+    .card-body h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .format-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .product {
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+      margin: 4px 0 12px;
+    }
+
+    .hook-main {
+      background: var(--ivory);
+      border-left: 2px solid var(--gold);
+      padding: 10px 14px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 1.12rem;
+      line-height: 1.35;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .alts-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .alts {
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+    }
+
+    .alts li {
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(196, 165, 116, 0.18);
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .alts li:last-child { border-bottom: 0; }
+
+    .alts li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--gold-deep);
+    }
+
+    /* Proof */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 720px) {
+      .proof-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .proof-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow);
+      display: block;
+    }
+
+    .proof-card.featured {
+      grid-column: 1 / -1;
+      background: linear-gradient(160deg, #FBF6F2, #F3E4DF);
+      padding: 28px 18px;
+    }
+
+    .proof-views {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2.15rem;
+      font-weight: 600;
+      color: var(--rose);
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .proof-card.featured .proof-views { font-size: 3.2rem; }
+
+    .proof-label {
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      margin-top: 6px;
+    }
+
+    .proof-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      font-weight: 500;
+    }
+
+    .proof-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 16px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Pills */
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .pill {
+      background: var(--white);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .disclaimer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-top: 16px;
+      font-style: italic;
+    }
+
+    /* Rates */
+    .rates {
+      display: grid;
+      gap: 12px;
+    }
+
+    .rate {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .rate dt {
+      font-weight: 500;
+      font-size: 0.98rem;
+    }
+
+    .rate dd {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--rose);
+      white-space: nowrap;
+    }
+
+    .rate-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 14px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Why me */
+    .whys {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .why {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 16px;
+    }
+
+    .why h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .why p {
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+    }
+
+    /* Footer / contact */
+    footer {
+      margin-top: 64px;
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    footer h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    footer .close {
+      color: var(--ink-soft);
+      max-width: 460px;
+      margin: 0 auto 24px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+      margin-bottom: 28px;
+    }
+
+    .links a {
+      color: var(--rose);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-bottom: 1px solid transparent;
+    }
+
+    .links a:hover { border-bottom-color: var(--gold); }
+
+    .placeholder {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .fine {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: left;
+      }
+      .ph-wrap { width: 148px; }
+      .card-body { width: 100%; }
+      .whys { grid-template-columns: 1fr; }
+      .rate { flex-direction: column; gap: 4px; }
+      .rate dd { white-space: normal; }
+      .hero { padding: 40px 0 36px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="brand-mark">Tips de Nat</div>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="btn-es" onclick="setLang('es')" aria-pressed="true">ES</button>
+        <button type="button" id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+      </div>
+    </div>
+
+    <header class="hero">
+      <p class="eyebrow">
+        <span class="t-es">Creadora UGC · Skincare y K-beauty</span>
+        <span class="t-en">UGC creator · Skincare &amp; K-beauty</span>
+      </p>
+      <h1>Tips de Nat</h1>
+      <div class="rule"></div>
+      <p class="tagline">
+        <span class="t-es">UGC de skincare en español e inglés · Piel real, resultados reales</span>
+        <span class="t-en">Skincare UGC in Spanish and English · Real skin, real results</span>
+      </p>
+      <p class="bio">
+        <span class="t-es">Soy Natalia. Grabo videos de skincare y aparatos de belleza en casa que se ven como lo que haría una clienta de verdad: luz de ventana, sin filtros y en el idioma de tu audiencia. Trabajo en español e inglés para marcas que quieren llegar al mercado hispano en Estados Unidos, con ganchos claros y entregas listas para anunciar.</span>
+        <span class="t-en">I'm Natalia. I film at-home skincare and beauty-device videos that look like a real customer made them: window light, no filters, in the language of your audience. I work in Spanish and English for brands that want to reach the U.S. Hispanic market, with clear hooks and files ready to run as ads.</span>
+      </p>
+      <a class="cta" href="mailto:TU-EMAIL@ejemplo.com">
+        <span class="t-es">Hablemos de tu marca</span>
+        <span class="t-en">Let’s talk about your brand</span>
+      </a>
+    </header>
+
+    <section id="trabajo">
+      <div class="section-head">
+        <h2>
+          <span class="t-es">Qué creo</span>
+          <span class="t-en">What I make</span>
+        </h2>
+        <p>
+          <span class="t-es">Cinco formatos de 20 a 35 segundos, listos para Shorts, Reels y anuncios. Cada video incluye el gancho principal y variaciones para anuncios.</span>
+          <span class="t-en">Five formats, 20 to 35 seconds, ready for Shorts, Reels, and ads. Each video includes a main hook plus ad variations.</span>
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <!-- 1. Demo: medicube Booster Pro -->
+        <article class="card">
+          <div class="ph-wrap">
+            <!--
+              To add a YouTube Shorts embed, replace the .video-ph div with:
+              <iframe width="148" height="263" src="https://www.youtube.com/embed/VIDEO_ID" title="medicube Booster Pro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="aspect-ratio:9/16;width:100%;height:auto;border:0;border-radius:14px;"></iframe>
+              To add an MP4, replace with:
+              <video controls playsinline poster="poster.jpg" style="aspect-ratio:9/16;width:100%;border-radius:14px;background:#2C2420;">
+                <source src="videos/booster-pro.mp4" type="video/mp4">
+              </video>
+            -->
+            <div class="video-ph">
+              <div class="ratio">9:16</div>
+              <div class="hint">Pega aquí tu video<br>Paste video link</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="format-tag">
+              <span class="t-es">Demo del aparato</span>
+              <span class="t-en">Device demo</span>
+            </p>
+            <h3>medicube Booster Pro</h3>
+            <p class="product">
+              <span class="t-es">Demo en 20–35 s: modos, aplicación con sérum y resultado a 30 días. Sin afirmaciones de salud.</span>
+              <span class="t-en">A 20–35s demo: modes, serum application, and a 30-day result. No health claims.</span>
+            </p>
+            <div class="hook-main">
+              <span class="t-es">«¿Un aparato coreano de $200 que hace lo mismo que un facial? Lo probé 30 días.»</span>
+              <span class="t-en">“A $200 Korean device that does what a facial does? I tried it for 30 days.”</span>
+            </div>
+            <p class="alts-label">
+              <span class="t-es">Ganchos alternativos</span>
+              <span class="t-en">Alternate hooks</span>
+            </p>
+            <ul class="alts">
+              <li>
+                <span class="t-es">«5 minutos de noche. 30 días. Mira lo que le pasó a mi piel.»</span>
+                <span class="t-en">“Five minutes at night. 30 days. Watch what happened to my skin.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Dejé el facial de salón un mes… y usé esto en casa.»</span>
+                <span class="t-en">“I skipped the salon facial for a month… and used this at home.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Si tienes textura en la piel, tienes que ver esto.»</span>
+                <span class="t-en">“If you struggle with texture, you need to see this.”</span>
+              </li>
+              <li>
+                <span class="t-es">«No es un filtro. Es un aparato que uso 5 minutos antes de dormir.»</span>
+                <span class="t-en">“This is not a filter. It’s a device I use for five minutes before bed.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Me costó menos que un facial… y lo uso todas las noches.»</span>
+                <span class="t-en">“It cost less than one facial… and I use it every night.”</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 2. Before/after: Rael patches -->
+        <article class="card">
+          <div class="ph-wrap">
+            <!--
+              To add a YouTube Shorts embed, replace the .video-ph div with:
+              <iframe width="148" height="263" src="https://www.youtube.com/embed/VIDEO_ID" title="Rael acne patches" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="aspect-ratio:9/16;width:100%;height:auto;border:0;border-radius:14px;"></iframe>
+              To add an MP4, replace with:
+              <video controls playsinline poster="poster.jpg" style="aspect-ratio:9/16;width:100%;border-radius:14px;background:#2C2420;">
+                <source src="videos/rael-patches.mp4" type="video/mp4">
+              </video>
+            -->
+            <div class="video-ph">
+              <div class="ratio">9:16</div>
+              <div class="hint">Pega aquí tu video<br>Paste video link</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="format-tag">
+              <span class="t-es">Antes y después</span>
+              <span class="t-en">Before &amp; after</span>
+            </p>
+            <h3>
+              <span class="t-es">Parches para granitos Rael</span>
+              <span class="t-en">Rael acne patches</span>
+            </h3>
+            <p class="product">
+              <span class="t-es">Emergencia de una noche: se pone, se duerme, se quita. Misma luz en el antes y el después. Piel real, sin filtros.</span>
+              <span class="t-en">A one-night emergency: apply, sleep, peel. Same light for before and after. Real skin, no filters.</span>
+            </p>
+            <div class="hook-main">
+              <span class="t-es">«Tengo un evento mañana y me salió ESTO. Vamos a ver si los parches funcionan de verdad.»</span>
+              <span class="t-en">“I have an event tomorrow and THIS showed up. Let’s see if the patches actually work.”</span>
+            </div>
+            <p class="alts-label">
+              <span class="t-es">Ganchos alternativos</span>
+              <span class="t-en">Alternate hooks</span>
+            </p>
+            <ul class="alts">
+              <li>
+                <span class="t-es">«Granito de último minuto. Una noche. ¿Se nota o no se nota?»</span>
+                <span class="t-en">“Last-minute breakout. One night. Can you still see it?”</span>
+              </li>
+              <li>
+                <span class="t-es">«El truco coreano que uso cuando me sale un granito el día anterior.»</span>
+                <span class="t-en">“The Korean trick I use when a pimple shows up the day before.”</span>
+              </li>
+              <li>
+                <span class="t-es">«No lo reventé. Hice esto en su lugar.»</span>
+                <span class="t-en">“I didn’t pop it. I did this instead.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Parche de noche, cámara de mañana. Sin trampa y sin filtro.»</span>
+                <span class="t-en">“Patch at night, camera in the morning. No tricks, no filter.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Si te sale un granito antes de un evento, prueba esto antes de entrarle con los dedos.»</span>
+                <span class="t-en">“If a pimple shows up before an event, try this before you touch it.”</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 3. Routine/ASMR: LANEIGE Lip Sleeping Mask -->
+        <article class="card">
+          <div class="ph-wrap">
+            <!--
+              To add a YouTube Shorts embed, replace the .video-ph div with:
+              <iframe width="148" height="263" src="https://www.youtube.com/embed/VIDEO_ID" title="LANEIGE Lip Sleeping Mask" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="aspect-ratio:9/16;width:100%;height:auto;border:0;border-radius:14px;"></iframe>
+              To add an MP4, replace with:
+              <video controls playsinline poster="poster.jpg" style="aspect-ratio:9/16;width:100%;border-radius:14px;background:#2C2420;">
+                <source src="videos/laneige-lip-mask.mp4" type="video/mp4">
+              </video>
+            -->
+            <div class="video-ph">
+              <div class="ratio">9:16</div>
+              <div class="hint">Pega aquí tu video<br>Paste video link</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="format-tag">
+              <span class="t-es">Rutina de noche · ASMR</span>
+              <span class="t-en">Night routine · ASMR</span>
+            </p>
+            <h3>LANEIGE Lip Sleeping Mask</h3>
+            <p class="product">
+              <span class="t-es">Luz tenue, sonido del frasco y aplicación en cámara lenta. La rutina termina con los labios a la mañana siguiente.</span>
+              <span class="t-en">Dim light, the sound of the jar, and a slow-motion application. The routine ends with lips the next morning.</span>
+            </p>
+            <div class="hook-main">
+              <span class="t-es">«El producto que TODO el mundo compra… ¿vale la pena?»</span>
+              <span class="t-en">“The product everyone buys… is it actually worth it?”</span>
+            </div>
+            <p class="alts-label">
+              <span class="t-es">Ganchos alternativos</span>
+              <span class="t-en">Alternate hooks</span>
+            </p>
+            <ul class="alts">
+              <li>
+                <span class="t-es">«Me lo pongo 30 segundos antes de dormir. Así amanecen mis labios.»</span>
+                <span class="t-en">“I put it on 30 seconds before bed. This is how my lips look in the morning.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Llevo meses con el mismo frasco… y ya no uso otro bálsamo.»</span>
+                <span class="t-en">“I’ve been on the same jar for months… and I don’t use another balm anymore.”</span>
+              </li>
+              <li>
+                <span class="t-es">«ASMR de skincare: el bálsamo de labios que se volvió tendencia.»</span>
+                <span class="t-en">“Skincare ASMR: the lip mask that took over everyone’s routine.”</span>
+              </li>
+              <li>
+                <span class="t-es">«¿Labios secos al despertar? Yo también… hasta que empecé a hacer esto.»</span>
+                <span class="t-en">“Dry lips when you wake up? Same… until I started doing this.”</span>
+              </li>
+              <li>
+                <span class="t-es">«¿Hype o funciona? Lo usé todas las noches y te muestro el antes y el después.»</span>
+                <span class="t-en">“Hype or does it work? I used it every night and I’ll show you the before and after.”</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 4. Unboxing: medicube PDRN balm -->
+        <article class="card">
+          <div class="ph-wrap">
+            <!--
+              To add a YouTube Shorts embed, replace the .video-ph div with:
+              <iframe width="148" height="263" src="https://www.youtube.com/embed/VIDEO_ID" title="medicube PDRN balm" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="aspect-ratio:9/16;width:100%;height:auto;border:0;border-radius:14px;"></iframe>
+              To add an MP4, replace with:
+              <video controls playsinline poster="poster.jpg" style="aspect-ratio:9/16;width:100%;border-radius:14px;background:#2C2420;">
+                <source src="videos/medicube-pdrn-balm.mp4" type="video/mp4">
+              </video>
+            -->
+            <div class="video-ph">
+              <div class="ratio">9:16</div>
+              <div class="hint">Pega aquí tu video<br>Paste video link</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="format-tag">
+              <span class="t-es">Unboxing · casi sin hablar</span>
+              <span class="t-en">Unboxing · almost no talking</span>
+            </p>
+            <h3>medicube PDRN balm</h3>
+            <p class="product">
+              <span class="t-es">Apertura ASMR, tres ángulos del producto y la textura en la mano. Ideal si la marca quiere un video sin rostro o con muy poca voz.</span>
+              <span class="t-en">ASMR unboxing, three product angles, and the texture on the hand. Ideal if a brand wants a faceless clip or very little voiceover.</span>
+            </p>
+            <div class="hook-main">
+              <span class="t-es">«El bálsamo coreano que se agotó en TikTok 👀»</span>
+              <span class="t-en">“The Korean balm that sold out on TikTok 👀”</span>
+            </div>
+            <p class="alts-label">
+              <span class="t-es">Ganchos alternativos</span>
+              <span class="t-en">Alternate hooks</span>
+            </p>
+            <ul class="alts">
+              <li>
+                <span class="t-es">«Abramos juntas el bálsamo del que todo el mundo habla.»</span>
+                <span class="t-en">“Let’s open the balm everyone is talking about.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Textura de bálsamo, pero se absorbe como crema. Mira.»</span>
+                <span class="t-en">“Balm texture, but it melts in like a cream. Watch.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Unboxing en silencio… porque la textura lo dice todo.»</span>
+                <span class="t-en">“A quiet unboxing… because the texture says it all.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Esto se agotó por una razón. Te muestro por qué.»</span>
+                <span class="t-en">“This sold out for a reason. I’ll show you why.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Primera impresión: el bálsamo PDRN de medicube, en cámara lenta.»</span>
+                <span class="t-en">“First look: medicube’s PDRN balm, in slow motion.”</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 5. Testimonial: Dr.Althea -->
+        <article class="card">
+          <div class="ph-wrap">
+            <!--
+              To add a YouTube Shorts embed, replace the .video-ph div with:
+              <iframe width="148" height="263" src="https://www.youtube.com/embed/VIDEO_ID" title="Dr.Althea 147 Barrier Cream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="aspect-ratio:9/16;width:100%;height:auto;border:0;border-radius:14px;"></iframe>
+              To add an MP4, replace with:
+              <video controls playsinline poster="poster.jpg" style="aspect-ratio:9/16;width:100%;border-radius:14px;background:#2C2420;">
+                <source src="videos/dr-althea-cream.mp4" type="video/mp4">
+              </video>
+            -->
+            <div class="video-ph">
+              <div class="ratio">9:16</div>
+              <div class="hint">Pega aquí tu video<br>Paste video link</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="format-tag">
+              <span class="t-es">Testimonio a cámara</span>
+              <span class="t-en">To-camera testimonial</span>
+            </p>
+            <h3>
+              <span class="t-es">Dr.Althea crema calmante</span>
+              <span class="t-en">Dr.Althea soothing cream</span>
+            </h3>
+            <p class="product">
+              <span class="t-es">Historia corta a cámara: piel sensible, varias cremas y la que sí me volví a comprar. (Me la pedí más de una vez, de verdad.)</span>
+              <span class="t-en">A short to-camera story: sensitive skin, a string of creams, and the one I actually repurchased. (I really did order it more than once.)</span>
+            </p>
+            <div class="hook-main">
+              <span class="t-es">«Mi piel se irritaba con TODO… hasta que encontré esta crema.»</span>
+              <span class="t-en">“My skin reacted to EVERYTHING… until I found this cream.”</span>
+            </div>
+            <p class="alts-label">
+              <span class="t-es">Ganchos alternativos</span>
+              <span class="t-en">Alternate hooks</span>
+            </p>
+            <ul class="alts">
+              <li>
+                <span class="t-es">«No es la crema más famosa. Es la que me volví a comprar.»</span>
+                <span class="t-en">“It’s not the most famous cream. It’s the one I bought again.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Piel sensible, mil cremas, y al final me quedé con esta.»</span>
+                <span class="t-en">“Sensitive skin, a dozen creams, and this is the one I kept.”</span>
+              </li>
+              <li>
+                <span class="t-es">«La compré por un video… y ya voy en mi segundo frasco.»</span>
+                <span class="t-en">“I bought it because of a video… and I’m already on my second jar.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Si tu piel se irrita fácil, quiero que veas esto.»</span>
+                <span class="t-en">“If your skin gets irritated easily, I want you to see this.”</span>
+              </li>
+              <li>
+                <span class="t-es">«Ligera, sin perfume, y no me pica. Por eso me la vuelvo a comprar.»</span>
+                <span class="t-en">“Lightweight, unscented, and it doesn’t sting. That’s why I repurchase it.”</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="ganchos">
+      <div class="section-head">
+        <h2>
+          <span class="t-es">Ganchos que retienen</span>
+          <span class="t-en">Hooks that hold attention</span>
+        </h2>
+        <p>
+          <span class="t-es">En YouTube ya pruebo ganchos en español. Estos Shorts no son de skincare todavía; muestran que el formato de pregunta + sorpresa retiene a la gente.</span>
+          <span class="t-en">I already test Spanish-language hooks on YouTube. These Shorts are not skincare yet; they show that a question-plus-surprise format holds attention.</span>
+        </p>
+      </div>
+      <div class="proof-grid">
+        <a class="proof-card featured" href="https://www.youtube.com/shorts/anejZur5Z18" target="_blank" rel="noopener">
+          <div class="proof-views">18K</div>
+          <div class="proof-label">
+            <span class="t-es">vistas · comedero lento para perros</span>
+            <span class="t-en">views · dog slow feeder</span>
+          </div>
+          <span class="proof-link">YouTube Shorts ↗</span>
+        </a>
+        <a class="proof-card" href="https://www.youtube.com/shorts/Pg7hCV7Pumk" target="_blank" rel="noopener">
+          <div class="proof-views">~2.1K–2.3K</div>
+          <div class="proof-label">
+            <span class="t-es">vistas · ventilador con power bank</span>
+            <span class="t-en">views · ice fan &amp; power bank</span>
+          </div>
+          <span class="proof-link">YouTube Shorts ↗</span>
+        </a>
+        <a class="proof-card" href="https://www.youtube.com/shorts/w7c7VchHjSk" target="_blank" rel="noopener">
+          <div class="proof-views">~2.1K–2.3K</div>
+          <div class="proof-label">
+            <span class="t-es">vistas · mantel</span>
+            <span class="t-en">views · tablecloth</span>
+          </div>
+          <span class="proof-link">YouTube Shorts ↗</span>
+        </a>
+        <a class="proof-card" href="https://www.youtube.com/shorts/AzVdl4AJ5kw" target="_blank" rel="noopener">
+          <div class="proof-views">~2.1K–2.3K</div>
+          <div class="proof-label">
+            <span class="t-es">vistas · micrófono</span>
+            <span class="t-en">views · microphone</span>
+          </div>
+          <span class="proof-link">YouTube Shorts ↗</span>
+        </a>
+      </div>
+      <p class="proof-note">
+        <span class="t-es">Cifras del canal <a href="https://www.youtube.com/@tipsdenat" style="color:inherit;">@tipsdenat</a>. No son vistas pagadas ni de campañas de marca.</span>
+        <span class="t-en">Figures from the <a href="https://www.youtube.com/@tipsdenat" style="color:inherit;">@tipsdenat</a> channel. These are not paid views or brand-campaign results.</span>
+      </p>
+    </section>
+
+    <section id="marcas">
+      <div class="section-head">
+        <h2>
+          <span class="t-es">Productos que uso</span>
+          <span class="t-en">Products I use</span>
+        </h2>
+        <p>
+          <span class="t-es">Marcas que ya tengo en casa y puedo grabar sin pedir el producto primero. Esto no es una alianza ni una colaboración pagada.</span>
+          <span class="t-en">Brands I already have at home and can film without waiting for a PR package. This is not a partnership or paid collaboration.</span>
+        </p>
+      </div>
+      <div class="pills">
+        <span class="pill">medicube</span>
+        <span class="pill">LANEIGE</span>
+        <span class="pill">Rael</span>
+        <span class="pill">Dr.Althea</span>
+        <span class="pill">VT Cosmetics</span>
+        <span class="pill">La Roche-Posay</span>
+      </div>
+      <p class="disclaimer">
+        <span class="t-es">Uso personal. Ninguna de estas marcas me patrocina, salvo que se indique lo contrario en un trabajo futuro.</span>
+        <span class="t-en">Personal use only. None of these brands sponsor me, unless a future project says otherwise.</span>
+      </p>
+    </section>
+
+    <section id="tarifas">
+      <div class="section-head">
+        <h2>
+          <span class="t-es">Servicios y tarifas</span>
+          <span class="t-en">Services &amp; rates</span>
+        </h2>
+        <p>
+          <span class="t-es">Tarifas de inicio, fáciles de actualizar cuando suban. En dólares de EE. UU.</span>
+          <span class="t-en">Starting rates, easy to update as they go up. In U.S. dollars.</span>
+        </p>
+      </div>
+      <dl class="rates">
+        <div class="rate">
+          <dt>
+            <span class="t-es">1 video UGC</span>
+            <span class="t-en">1 UGC video</span>
+          </dt>
+          <dd>
+            <span class="t-es">desde $100</span>
+            <span class="t-en">from $100</span>
+          </dd>
+        </div>
+        <div class="rate">
+          <dt>
+            <span class="t-es">Paquete de 3 videos</span>
+            <span class="t-en">3-video package</span>
+          </dt>
+          <dd>
+            <span class="t-es">desde $270</span>
+            <span class="t-en">from $270</span>
+          </dd>
+        </div>
+        <div class="rate">
+          <dt>
+            <span class="t-es">Variaciones de gancho</span>
+            <span class="t-en">Hook variations</span>
+          </dt>
+          <dd>
+            <span class="t-es">+$25 c/u</span>
+            <span class="t-en">+$25 each</span>
+          </dd>
+        </div>
+        <div class="rate">
+          <dt>
+            <span class="t-es">Derechos de uso para anuncios (30 días)</span>
+            <span class="t-en">Paid-ad usage rights (30 days)</span>
+          </dt>
+          <dd>+30%</dd>
+        </div>
+        <div class="rate">
+          <dt>
+            <span class="t-es">Whitelisting / Spark Ads</span>
+            <span class="t-en">Whitelisting / Spark Ads</span>
+          </dt>
+          <dd>
+            <span class="t-es">a cotizar</span>
+            <span class="t-en">on request</span>
+          </dd>
+        </div>
+      </dl>
+      <p class="rate-note">
+        <span class="t-es">Precios de partida, editables. Incluyen una ronda de revisiones. El uso orgánico en las redes de la marca va en el video base; el uso pagado se cotiza aparte.</span>
+        <span class="t-en">Editable starting prices. One revision round is included. Organic use on the brand’s channels comes with the base video; paid usage is quoted separately.</span>
+      </p>
+    </section>
+
+    <section id="por-que">
+      <div class="section-head">
+        <h2>
+          <span class="t-es">Por qué yo</span>
+          <span class="t-en">Why me</span>
+        </h2>
+      </div>
+      <div class="whys">
+        <div class="why">
+          <h3>
+            <span class="t-es">Bilingüe ES / EN</span>
+            <span class="t-en">Bilingual ES / EN</span>
+          </h3>
+          <p>
+            <span class="t-es">Contenido auténtico en español e inglés para el mercado hispano en Estados Unidos, a tarifas de EE. UU.</span>
+            <span class="t-en">Authentic Spanish and English content for the U.S. Hispanic market, at U.S. rates.</span>
+          </p>
+        </div>
+        <div class="why">
+          <h3>
+            <span class="t-es">Audio limpio</span>
+            <span class="t-en">Clean audio</span>
+          </h3>
+          <p>
+            <span class="t-es">Cada entrega sale con ruido reducido y nivelada a −14 LUFS, el volumen estándar en redes.</span>
+            <span class="t-en">Every delivery is denoised and leveled to −14 LUFS, the standard loudness for social video.</span>
+          </p>
+        </div>
+        <div class="why">
+          <h3>
+            <span class="t-es">Subtítulos sincronizados</span>
+            <span class="t-en">Captions in sync</span>
+          </h3>
+          <p>
+            <span class="t-es">Cada palabra aparece cuando la digo, en texto blanco sencillo, fuera de la zona de botones.</span>
+            <span class="t-en">Each word appears as I say it, in simple white type, kept clear of on-screen buttons.</span>
+          </p>
+        </div>
+        <div class="why">
+          <h3>
+            <span class="t-es">Entrega en 5 días</span>
+            <span class="t-en">Delivered in 5 days</span>
+          </h3>
+          <p>
+            <span class="t-es">Video terminado más archivos en bruto, si los pides, en cinco días hábiles tras aprobar el brief.</span>
+            <span class="t-en">Finished video plus raw files, if you want them, within five business days of an approved brief.</span>
+          </p>
+        </div>
+        <div class="why">
+          <h3>
+            <span class="t-es">1 ronda de revisiones</span>
+            <span class="t-en">1 revision round</span>
+          </h3>
+          <p>
+            <span class="t-es">Incluida en cada video o paquete, para ajustar el tono, el gancho o un detalle del brief.</span>
+            <span class="t-en">Included with every video or package, to adjust tone, hook, or a brief detail.</span>
+          </p>
+        </div>
+        <div class="why">
+          <h3>
+            <span class="t-es">Piel real, sin filtros</span>
+            <span class="t-en">Real skin, no filters</span>
+          </h3>
+          <p>
+            <span class="t-es">Luz natural de ventana. Nada de suavizado ni filtros de belleza: las marcas necesitan ver la piel de verdad.</span>
+            <span class="t-en">Natural window light. No smoothing and no beauty filters: brands need to see real skin.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contacto">
+      <h2>
+        <span class="t-es">Hablemos</span>
+        <span class="t-en">Let’s talk</span>
+      </h2>
+      <div class="rule"></div>
+      <p class="close">
+        <span class="t-es">Si buscas UGC de skincare en español o en los dos idiomas, escríbeme. Te mando el catálogo con los videos ya grabados y vemos un brief de prueba.</span>
+        <span class="t-en">If you’re looking for skincare UGC in Spanish or in both languages, write me. I’ll send the catalog once the videos are filmed, and we can set up a paid test.</span>
+      </p>
+      <div class="links">
+        <a href="mailto:TU-EMAIL@ejemplo.com">[TU-EMAIL@ejemplo.com]</a>
+        <a href="https://www.youtube.com/@tipsdenat" target="_blank" rel="noopener">YouTube @tipsdenat</a>
+        <span class="placeholder">TikTok: [TU-TIKTOK]</span>
+        <span class="placeholder">Instagram: [TU-INSTAGRAM]</span>
+      </div>
+      <p class="fine">Tips de Nat · UGC de skincare · ES / EN</p>
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.documentElement.lang = lang === 'en' ? 'en' : 'es';
+      document.getElementById('btn-es').setAttribute('aria-pressed', lang === 'es' ? 'true' : 'false');
+      document.getElementById('btn-en').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+    }
+  </script>
+</body>
+</html>
